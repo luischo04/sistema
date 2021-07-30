@@ -1,0 +1,57 @@
+{% include 'header.html' %}
+
+{% with messages= get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<br>
+        <form method="POST" action="/store" enctype="multipart/form-data">
+
+            <div class="card">
+                <div class="card-header">
+                    Registro
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Datos a ingresar</h4>
+                    <p class="card-text">
+
+                        <div class="form-group">
+                          <label for="txtNombre">Nombre</label>
+                          <input type="text" name="txtNombre" id="txtNombre" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtCorreo">Correo</label>
+                            <input type="text" name="txtCorreo" id="txtCorreo" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtFoto">Foto</label>
+                            <input type="file" name="txtFoto" id="txtFoto" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="btn btn-success" type="submit" value="Agregar">
+                            <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                        </div>
+                        
+
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    Zodiaco LFB
+                </div>
+            </div>
+
+        </form> 
+
+{% include 'footer.html' %}
+
+
+
